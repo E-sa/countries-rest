@@ -11,41 +11,41 @@ export default class Body extends React.Component {
 
     return (
       <div id="each-country-page">
-        <img src={data.flag} style={{ width: "30vw" }} alt='flag' />
+        <img src={data.flag} style={{ width: "30vw",height:"30wv" }} alt='flag' />
         <div id="right-side">
           <h2>{data.name}</h2>
           <div id="eight-country-details">
             <div>
               <p>
-                Native Name: <p>{data.nativeName}</p>{" "}
+                Native Name: <span>{data.nativeName}</span>
               </p>
               <p>
-                Population: <p>{data.population}</p>{" "}
+                Population: <span>{data.population}</span>
               </p>
               <p>
-                Region: <p>{data.region}</p>
+                Region: <span>{data.region}</span>
               </p>
               <p>
-                Sub Region: <p>{data.subregion}</p>
+                Sub Region: <span>{data.subregion}</span>
               </p>
               <p>
-                Capital: <p>{data.capital}</p>
+                Capital: <span>{data.capital}</span>
               </p>
             </div>
             <div>
               <p>
-                Top Level Domain: <p>{data.topLevelDomain}</p>
+                Top Level Domain: <span>{data.topLevelDomain}</span>
               </p>
               <p>
-                Currencies: <p>{data.currencies[0]["code"]}</p>
+                Currencies: <span>{data.currencies[0]["code"]}</span>
               </p>
               <p>
                 Languages:
-                <p>
+                <span>
                   {data.languages.map((result, index) => {
-                    return <p>{result["name"]},</p>;
+                    return <span key={index} >{result["name"]},</span>;
                   })}
-                </p>
+                </span>
               </p>
             </div>
           </div>
