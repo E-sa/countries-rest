@@ -15,7 +15,6 @@ import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
-const continents= ['Asia','Africa','Americas', 'Europe', 'Oceania']
 
 
 class App extends React.Component {
@@ -130,17 +129,27 @@ class App extends React.Component {
                 );
               })}
 
-              {
-                continents.map(continent => {
-                  return(
-                    //route #2: it makes 5 diffrent routes for each continent
-                  <Route path={`/${continent}`}>
-                    <Back />
-                    <Body country={eval(continent)} />
-                 </Route>
-                  )
-                })
-              }
+              {/* //route #2: it makes 5 diffrent routes for each continent */}
+              <Route path='/Africa'>
+                <Back />
+                <Body country={Africa} />
+              </Route>
+              <Route path='/Asia'>
+                <Back />
+                <Body country={Asia} />
+              </Route>
+              <Route path='/Americas'>
+                <Back />
+                <Body country={Americas} />
+              </Route>
+              <Route path='/Oceania'>
+                <Back />
+                <Body country={Oceania} />
+              </Route>
+              <Route path='/Europe'>
+                <Back />
+                <Body country={Europe} />
+              </Route>
               {/* route #3: main route '/'. it includes search input,
               filter box and the list of all countries */}
               <Route path="">
