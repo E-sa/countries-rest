@@ -1,0 +1,151 @@
+@mixin moon-image {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+//light-dark background + shadow
+@mixin dark-shadow {
+  background-color: var(--light-black);
+  -webkit-box-shadow: 0px 0px 14px 9px rgb(30, 43, 52);
+  box-shadow: 0px 0px 14px 9px rgb(30, 43, 52);
+}
+
+#darkMode {
+  filter: grayscale(100%);
+  border: none;
+  background: border-box;
+}
+
+#darkMode.clicked {
+  filter: none !important;
+}
+
+:root {
+  --grey: rgb(245, 244, 251);
+  --white: rgb(250, 250, 250);
+  --black: black;
+  --light-black: rgb(43, 55, 67);
+  --dark-black: rgb(32, 45, 54);
+}
+
+body.light {
+  --background-color: var(--grey);
+  --text-color: var(--black);
+  --font-weight: 400;
+
+  #moon-image {
+    @include moon-image;
+    background-image: url(../images/moon.png);
+  }
+
+  #header-container {
+    background-color: var(--white);
+  }
+
+  #border-countries {
+    div {
+      div {
+        border: 1px solid #cecbcb;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  #back {
+    -webkit-box-shadow: 0px 6px 11px 0px rgba(175, 175, 175, 0.84);
+    -moz-box-shadow: 0px 6px 11px 0px rgba(175, 175, 175, 0.84);
+    box-shadow: 0px 6px 11px 0px rgba(175, 175, 175, 0.84);
+    border: none;
+  }
+}
+
+body.dark {
+  --background-color: var(--dark-black);
+  --text-color: var(--white);
+  --font-weight: 500;
+
+  #darkMode {
+    color: var(--white);
+  }
+
+  #moon-image {
+    @include moon-image;
+    background-image: url(../images/w-moon.png);
+  }
+
+  #header-container {
+    @include dark-shadow;
+  }
+
+  #search-input {
+    ::placeholder {
+      color: var(--grey);
+      opacity: 0.7;
+    }
+    input {
+      @include dark-shadow;
+    }
+  }
+
+  #filter {
+    div {
+      button {
+        @include dark-shadow;
+        color: var(--grey);
+      }
+      .dropdown-menu {
+        @include dark-shadow;
+        a {
+          color: var(--grey);
+        }
+      }
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: #3e5161;
+      }
+    }
+  }
+
+  #body {
+    .card-body {
+      background-color: var(--light-black);
+    }
+  }
+
+  #eight-country-details {
+    p {
+      p {
+        color: #ababa2;
+      }
+    }
+  }
+  #border-countries {
+    div {
+      div {
+        background-color: var(--light-black);
+        -webkit-box-shadow: 0px 0px 14px 9px rgb(30, 43, 52);
+        box-shadow: 0px 0px 14px 9px rgb(30, 43, 52);
+        border: none;
+      }
+    }
+  }
+  #back {
+    background-color: var(--light-black);
+    -webkit-box-shadow: 0px 0px 14px 9px rgb(30, 43, 52);
+    box-shadow: 0px 0px 14px 9px rgb(30, 43, 52);
+    border: none;
+    color: var(--grey);
+  }
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-weight: var(--font-weight);
+  // transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+}

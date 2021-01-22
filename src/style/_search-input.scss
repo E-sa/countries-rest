@@ -1,0 +1,27 @@
+#search-input {
+  input {
+    height: 45px;
+    padding: 10px;
+
+    border: none;
+    -webkit-box-shadow: 0px 0px 14px 9px #efefef;
+    box-shadow: 0px 0px 14px 9px #efefef;
+    border-radius: 6px;
+    color: gray;
+
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-size: 23px;
+    background-position: left;
+    background-position: 35px;
+    padding-left: 80px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #search-input {
+    input {
+      width: 100%;
+    }
+  }
+}

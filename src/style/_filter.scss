@@ -1,0 +1,28 @@
+#filter {
+  margin: 0;
+  padding: 0;
+
+  div {
+    button {
+      height: 45px;
+
+      border: none;
+      background-color: white;
+      color: rgb(61, 60, 60);
+      -webkit-box-shadow: 0px 0px 14px 9px #efefef;
+      box-shadow: 0px 0px 14px 9px #efefef;
+      border-radius: 6px;
+      padding: 0 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #filter {
+    div {
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
