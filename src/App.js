@@ -120,8 +120,8 @@ class App extends React.Component {
                 return (
                   //route 1#: when u click on country flags it
                   //leads u to new path and show u more details
-                  <Route path={`/${result.name}`}>
-                    <div>
+                  <Route path={`/${result.name}`} key={index} >
+                    <div key={index}>
                       <Back />
                       <Each data={result} />
                     </div>
