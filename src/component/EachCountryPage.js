@@ -11,7 +11,7 @@ export default class Body extends React.Component {
 
     return (
       <div id="each-country-page">
-        <img src={data.flag} style={{ width: "30vw" }} />
+        <img src={data.flag} style={{ width: "30vw" }} alt='flag' />
         <div id="right-side">
           <h2>{data.name}</h2>
           <div id="eight-country-details">
