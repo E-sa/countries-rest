@@ -74,7 +74,6 @@ class App extends React.Component {
         //3. if u type any thing it filters results.
         if(childData){
           let LC = childData.toLowerCase()
-          console.log(LC)
           let searchTerm = data.filter(function(e){
            return e.name.toLowerCase().startsWith(LC)         
           })
@@ -121,7 +120,7 @@ class App extends React.Component {
                   //route 1#: when u click on country flags it
                   //leads u to new path and show u more details
                   <Route path={`/${result.name}`} key={index} >
-                    <div key={index}>
+                    <div >
                       <Back />
                       <Each data={result} />
                     </div>
