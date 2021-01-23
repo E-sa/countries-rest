@@ -5,7 +5,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import '../style/style.scss';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 function filterByRegion () {
