@@ -16,7 +16,7 @@ export default class Body extends React.Component {
             this.props.country.map((result, index) => {
               return (
                 <div className="card" key={index}>
-                  <Link to={result.name}>
+                  <Link to={result.name.replace(/\s/g, '')}>
                     <img
                       className="card-img-top"
                       src={result.flag}
