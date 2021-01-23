@@ -18,11 +18,11 @@ function filterByRegion () {
         Filter by Region
         </button>
         <div className="dropdown-menu">
-        <Link className="dropdown-item" to="Africa">Africa</Link>
-        <Link className="dropdown-item" to="/Americas">America</Link>
-        <Link className="dropdown-item" to="/Asia">Asia</Link>
-        <Link className="dropdown-item" to="/Europe">Europe</Link>
-        <Link className="dropdown-item" to="/Oceania">Oceania</Link>
+        <a className="dropdown-item" href="Africa">Africa</a>
+        <a className="dropdown-item" href="/Americas">America</a>
+        <a className="dropdown-item" href="/Asia">Asia</a>
+        <a className="dropdown-item" href="/Europe">Europe</a>
+        <a className="dropdown-item" href="/Oceania">Oceania</a>
         </div>
     </div>
 </div>
