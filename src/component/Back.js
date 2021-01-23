@@ -4,11 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import "../style/style.scss";
 
-import {  Link } from "react-router-dom";
+// import {  Link } from "react-router-dom";
 
 function header() {
   const header = (
-    <Link to="/">
+    <a href="/">
       <button
         style={{
           margin: "40px 7% 30px 7%",
@@ -18,7 +18,7 @@ function header() {
       >
         Back
       </button>
-    </Link>
+    </a>
   );
 
   return header;
