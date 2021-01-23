@@ -23,18 +23,18 @@ export default class Body extends React.Component {
                       alt={index}
                     />
                   </Link>
-                  <div className="card-body">
+                   <div className="card-body">
                     <h4 className="card-title">{result.name}</h4>
                     <div>
-                      <span className="card-text">
+                      <div className="card-text">
                         <h6>population:</h6> {result.population}
-                      </span>
-                      <span className="card-text">
+                      </div>
+                      <div className="card-text">
                         <h6>region:</h6> {result.region}
-                      </span>
-                      <span className="card-text">
+                      </div>
+                      <div className="card-text">
                         <h6>capital:</h6> {result.capital}
-                      </span>
+                      </div>
                     </div>
                   </div>
                 </div>
