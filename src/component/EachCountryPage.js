@@ -53,7 +53,7 @@ export default class Body extends React.Component {
             <p>Border Countries: </p>
             <div>
               {data.borders.map((result, index) => {
-                return <div>{result}</div>;
+                return <div key={index}>{result}</div>;
               })}
             </div>
           </div>
