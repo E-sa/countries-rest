@@ -24,9 +24,9 @@ class SearchInput extends React.Component {
     render(){
         return(
             <div id="search-input">
-            <label>
-             <input type="text" value={this.state.searchTerm} placeholder="Search for a country... " onChange={this.editSearchTerm} />
-            </label>
+                <label>
+                 <input type="text" value={this.state.searchTerm} placeholder="Search for a country... " onChange={this.editSearchTerm} />
+                </label>
             </div>
         )
     }
