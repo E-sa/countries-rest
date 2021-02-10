@@ -1,13 +1,9 @@
 import React from "react";
 import Header from "./component/header";
 import SearchInput from "./component/SearchInput";
-//filter box(div)
 import FilterByRegion from "./component/FilterByRegion";
-//it makes list of all countries in main route
 import Countries from "./component/Countries";
-//more datails about each country
 import Each from "./component/EachCountryPage";
-//back button
 import Back from "./component/Back";
 import "./style/style.scss";
 
@@ -25,7 +21,6 @@ class App extends React.Component {
 
   //what it does?
   //1. fetch data from URL
-  //2. receive what u have typed on input and filter results.
   country(childData) {
     const URL = "https://restcountries.eu/rest/v2/all";
     axios
@@ -34,28 +29,20 @@ class App extends React.Component {
         return res.data;
       })
       .then((data) => {
-        //1. all the countries are saved inside this.state.country and this.state.backupcountry
+        //1. all the countries are saved inside state.Country and state.backupCountry
         this.setState({
           country: data,
           backupCountry: data,
         });
 
-        //2. if u type any thing it filters results.
-        if (childData) {
-          let LC = childData.toLowerCase();
-          let searchTerm = data.filter(function (e) {
-            return e.name.toLowerCase().startsWith(LC);
-          });
-          this.setState({
-            country: searchTerm,
-          });
-        }
       })
 
       .catch((err) => {
         if (err) console.error("cant fetch country data from API, ", err);
       });
   }
+
+
 
   //this function gets which region u clicked and filters backupcountry
   filterRegion = (region) => {
@@ -73,17 +60,33 @@ class App extends React.Component {
   }
 };
 
-  componentDidMount() {
-    this.country();
-  }
 
+  // when u click back butten it resest state.
   unsetState = () => {
     this.setState({ country: this.state.backupCountry });
   };
-  //it handles callback from search input
-  handleCallback = (childData) => {
-    this.country(childData);
-  };
+
+
+  //gets the searched term from searchInput.js and displays proper results
+  search = (searchTerm) => {
+
+        if(searchTerm){
+          console.log(searchTerm)
+          let LC = searchTerm.toLowerCase();
+          let findCountries = this.state.backupCountry.filter(function (e) {
+            return e.name.toLowerCase().startsWith(LC);
+          });
+          this.setState({
+            country: findCountries,
+          });
+        
+  }
+}
+ 
+componentDidMount() {
+    this.country();
+  }
+
 
   render() {
     const { country } = this.state;
@@ -117,7 +120,7 @@ class App extends React.Component {
             <Route path="">
               <div id="search-filter-container">
                 <div>
-                  <SearchInput parentCallback={this.handleCallback} />
+                  <SearchInput parentCallback={this.handleCallback} onSearch={this.search} />
                 </div>
                 <div>
                   <FilterByRegion
