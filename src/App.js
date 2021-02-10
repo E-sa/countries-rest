@@ -70,9 +70,15 @@ class App extends React.Component {
   //gets the searched term from searchInput.js and displays proper results
   search = (searchTerm) => {
 
-        if(searchTerm){
-          console.log(searchTerm)
-          let LC = searchTerm.toLowerCase();
+      //without this 'if' when user delete all he had typed u get wrong result 
+      if(!searchTerm){
+        this.setState({
+          country: this.state.backupCountry,
+        });
+      }
+        else{
+          
+          let LC = searchTerm.trim().toLowerCase();
           let findCountries = this.state.backupCountry.filter(function (e) {
             return e.name.toLowerCase().startsWith(LC);
           });
@@ -80,7 +86,7 @@ class App extends React.Component {
             country: findCountries,
           });
         
-  }
+   }
 }
  
 componentDidMount() {
