@@ -6,6 +6,7 @@ import "../style/style.scss";
 
 export default function SearchInput({ onSearch }) {
   return (
+    <div>
     <div id="search-input">
       <label>
         <input
@@ -14,6 +15,7 @@ export default function SearchInput({ onSearch }) {
           onChange={(e) => onSearch(e.target.value)}
         />
       </label>
+    </div>
     </div>
   );
 }

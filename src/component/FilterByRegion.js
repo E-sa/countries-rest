@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 function filterByRegion ({onClickFilterRegion}) {
 
     const filterByRegion = 
+    <div>
      <div className="container" id="filter" >
 
     <div className="dropdown">
@@ -27,7 +28,7 @@ function filterByRegion ({onClickFilterRegion}) {
         </div>
     </div>
 </div>
-
+</div>
 return filterByRegion
 
 }

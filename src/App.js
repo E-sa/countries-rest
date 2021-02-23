@@ -34,7 +34,6 @@ class App extends React.Component {
           country: data,
           backupCountry: data,
         });
-
       })
 
       .catch((err) => {
@@ -42,57 +41,45 @@ class App extends React.Component {
       });
   }
 
-
-
   //this function gets which region u clicked and filters backupcountry
   filterRegion = (region) => {
-    
-    if(region==="all"){
+    if (region === "all") {
       this.setState({ country: this.state.backupCountry });
+    } else {
+      const continent = this.state.backupCountry.filter(function (e) {
+        return e.region === region;
+      });
+
+      this.setState({ country: continent });
     }
-    else{
-    const continent = this.state.backupCountry.filter(function (e) {
-      return e.region === region;
-    });
-
-    this.setState({ country: continent });
-
-  }
-};
-
+  };
 
   // when u click back butten it resest state.
   unsetState = () => {
     this.setState({ country: this.state.backupCountry });
   };
 
-
   //gets the searched term from searchInput.js and displays proper results
   search = (searchTerm) => {
+    //without this 'if' when user delete all he had typed u get wrong result
+    if (!searchTerm) {
+      this.setState({
+        country: this.state.backupCountry,
+      });
+    } else {
+      let LC = searchTerm.trim().toLowerCase();
+      let findCountries = this.state.backupCountry.filter(function (e) {
+        return e.name.toLowerCase().startsWith(LC);
+      });
+      this.setState({
+        country: findCountries,
+      });
+    }
+  };
 
-      //without this 'if' when user delete all he had typed u get wrong result 
-      if(!searchTerm){
-        this.setState({
-          country: this.state.backupCountry,
-        });
-      }
-        else{
-          
-          let LC = searchTerm.trim().toLowerCase();
-          let findCountries = this.state.backupCountry.filter(function (e) {
-            return e.name.toLowerCase().startsWith(LC);
-          });
-          this.setState({
-            country: findCountries,
-          });
-        
-   }
-}
- 
-componentDidMount() {
+  componentDidMount() {
     this.country();
   }
-
 
   render() {
     const { country } = this.state;
@@ -112,28 +99,25 @@ componentDidMount() {
                     path={`/${result.name.replace(/\s/g, "")}`}
                     key={index}
                   >
-                    <div>
-                      <Back unsetState={this.unsetState} />
-                      <Each data={result} />
-                    </div>
+                    <Back unsetState={this.unsetState} />
+                    <Each data={result} />
                   </Route>
                 );
               })}
-
 
             {/* route #2: main route '/'. it includes search input,
               filter box and the list of all countries */}
             <Route path="">
               <div id="search-filter-container">
-                <div>
-                  <SearchInput parentCallback={this.handleCallback} onSearch={this.search} />
-                </div>
-                <div>
-                  <FilterByRegion
-                    country={country}
-                    onClickFilterRegion={this.filterRegion}
-                  />
-                </div>
+                <SearchInput
+                  parentCallback={this.handleCallback}
+                  onSearch={this.search}
+                />
+
+                <FilterByRegion
+                  country={country}
+                  onClickFilterRegion={this.filterRegion}
+                />
               </div>
               <Countries country={country} />
             </Route>
